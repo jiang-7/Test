@@ -1,0 +1,53 @@
+import java.util.HashMap;
+import java.util.Map;
+
+
+public class Test {
+    //给定两个字符串 s 和 t ，编写一个函数来判断 t 是否是 s 的字母异位词。
+    public boolean isAnagram(String s, String t){
+        //两字符串一定长度相等
+        if(t.length()!=s.length()){
+            return false;
+        }
+        //创建一个Hashset来储存字符串s中字母的所有元素
+        Map<Character,Integer> map = new HashMap<>(  );
+        Map<Character,Integer> map2 = new HashMap<>(  );
+        for (int i = 0 ; i < s.length() ; i++){
+            int count=1;
+            //统计这个字符在s中出现的次数
+            if(map.containsKey( s.charAt(i) )==true){
+                count ++;
+            }
+            map.put(s.charAt( i ),count);
+        }
+
+        for (int i = 0 ; i< t.length() ; i++){
+            //如果t中出现s中没有的值,直接返回false
+            if(map.containsKey( t.charAt( i ) )==false){
+                return false;
+            }
+            //t 中每个字符出现的个数一定和s 中出现的相等
+
+            int nums=1;
+            //统计这个字符在t中出现的次数
+            if(map2.containsKey( t.charAt(i) )==true){
+                nums ++;
+            }
+            map2.put(t.charAt( i ),nums);
+
+        }//end for
+        for (int i = 0 ; i< t.length() ; i++) {
+            if (map.get( t.charAt( i ) ) != map2.get( t.charAt( i ) )) {
+                return false;
+            }
+        }
+        return true;
+     }
+     public static void main (String[] args){
+        String s = "anagram";
+        String t = "nagaram";
+        Test test = new Test();
+        System.out.println( test.isAnagram( s,t ) );
+     }
+
+}

@@ -1,0 +1,32 @@
+   public boolean Find(int target, int[][] array) {
+        //i<array.length,确保遍历到最后一行代码
+        //先判断数组是否为空!
+        if (array== null) {
+            return false;
+        }
+        for (int i = 0; i < array.length; i++) {
+            if(array[i].length==0){
+                continue;
+            }
+            //遍历列
+            //注意要是array[i].length-1,防止数组下标越界!
+            int j = array[i].length-1;
+            while (j != 0) {
+                if (target == array[i][j]) {
+                    return true;
+                }// end if
+                if (target < array[i][j]) {
+                    j--;
+                    continue;
+                }// end if
+                if (target > array[i][j]) {
+                    break;
+                }// end if
+            }//end while
+            if(target==array[i][0]){
+                return true;
+            }
+        }// end for
+        return false;
+    }//end Find
+    

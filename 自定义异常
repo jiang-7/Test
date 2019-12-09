@@ -1,0 +1,10 @@
+class ExceptionDemo extends Exception {
+    public ExceptionDemo() {
+        super( "自定义异常，产生了" );
+    }
+}
+public class test {
+    public static void main(String[] args)  throws ExceptionDemo {
+        throw new ExceptionDemo();
+    }
+}

@@ -1,0 +1,9 @@
+//不使用算术运算符的加法
+class Solution {
+    public int add(int a, int b) {
+        int z = a^b;
+        int x = (a&b)<<1;
+        int q = z+x;
+        return q;
+    }
+}

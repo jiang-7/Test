@@ -1,0 +1,17 @@
+public class Solution7 {
+    //要求输入一个整数n，输出斐波那契数列的第n项（从0开始，第0项为0，第1项是1）
+    public int Fibonacci(int n) {
+        //从第三项开始,其值为前两项的和
+        int sum=0;
+        if(n==0){
+            return 0;
+        }
+        if (n==1){
+            return 1;
+        }
+        else{
+            sum=Fibonacci(n-1)+Fibonacci( n-2 );
+            return sum;
+        }
+    }
+}
